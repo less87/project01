@@ -65,7 +65,7 @@ def main():
     # - ingest csse_covid_19_daily_reports_us with logic to loop through specific date coverage (drop given table first)
     exec_query('drop table if exists postgres."raw_'+'csse_covid_19_daily_reports_us'+'"')
     date_start = date(2021, 1, 1)
-    while (date_start < date(2023, 1, 1)):
+    while (date_start < date(2021, 2, 1)):
         ingest(f'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports_us/{date_start.strftime("%m-%d-%Y")}.csv', 'csse_covid_19_daily_reports_us')
         date_start += datetime.timedelta(days=1)
 
